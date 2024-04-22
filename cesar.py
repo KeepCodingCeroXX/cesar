@@ -10,14 +10,42 @@ def cifrar(frase, distancia):
         result += new_letra
     return result
 
+def cifradoElias(mensaje):
+    return cifrar(mensaje, 3)
+
+def descifradorMontse(mensaje):
+    return cifrar(mensaje, -3)
+
+def cifradorPablo(mensaje):
+    return cifrar(mensaje, 5)
+
+def descifradorFatima(mensaje):
+    return cifrar(mensaje, -5)
+
+def cifradorZoran(mensaje):
+    return cifrar(mensaje, 7)
+
+def descifradorLuis(mensaje):
+    return cifrar(mensaje, -7)
 
 def crearCifrador(distancia):
-
-    def cifrador(frase):
-        return cifrar(frase, distancia)
+    def cifrador(mensaje):
+        return cifrar(mensaje, distancia)
     
     return cifrador
-    
 
-miCifrador = crearCifrador(3)
-miCifrador("Hola")
+cifradorDidier = crearCifrador(9)
+cifradorElena = crearCifrador(-9)
+
+def crearPareja(distancia):
+    """
+    """
+    def cifrador(mensaje):
+        return cifrar(mensaje, distancia)
+    
+    def descifrador(mensaje):
+        return cifrar(mensaje, -distancia)
+    
+    return cifrador, descifrador
+
+cifrador, descifrador = crearPareja(11)
