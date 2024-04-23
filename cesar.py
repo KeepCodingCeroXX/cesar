@@ -48,7 +48,7 @@ def crearPareja(distancia):
     
     return cifrador, descifrador
 
-cifrador, descifrador = crearPareja(11)
+_cifrador, _descifrador = crearPareja(11)
 
 def crearParejaLimitada(distancia, num_usos):
     contador =  0
@@ -66,4 +66,26 @@ def crearParejaLimitada(distancia, num_usos):
     
     return cifrador, descifrador
 
+class Cifrador:
+    def __init__(self, distance, num_usos):
+        self.distancia = distance
+        self.num_usos = num_usos
 
+    def cifrar(self, mensaje):
+        self.num_usos -= 1
+        if self.num_usos <= 0:
+            return "Pase por caja."
+        
+        return cifrar(mensaje, self.distancia)
+    
+    #def descifrar(self, )
+
+
+
+cDidier = Cifrador(1, 1)
+print(cDidier.cifrar("Hola")) # -> IPMB
+print(cDidier.descifrar("ipmb")) #-> HOLA
+
+print(cDidier.cifrar("Hola")) # -> "Pase por caja."
+
+print(cDidier.distancia)

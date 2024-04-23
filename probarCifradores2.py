@@ -3,6 +3,7 @@ from cesar import crearParejaLimitada
 d = int(input("Que distancia quieres"))
 
 encryptor, decryptor = crearParejaLimitada(d, 2)
+otroEnc, otroDec = crearParejaLimitada(d*3, 4)
 
 for i in range(3):
     print(i+1, "vez")
