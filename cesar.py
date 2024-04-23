@@ -49,3 +49,21 @@ def crearPareja(distancia):
     return cifrador, descifrador
 
 cifrador, descifrador = crearPareja(11)
+
+def crearParejaLimitada(distancia, num_usos):
+    contador =  0
+
+    def cifrador(mensaje):
+        nonlocal contador
+
+        contador += 1
+        if contador > num_usos:
+            return "Cifrador agotado. Compre mas en www.secretum.com"
+        return cifrar(mensaje, distancia)
+    
+    def descifrador(mensaje):
+        return cifrar(mensaje, -distancia)
+    
+    return cifrador, descifrador
+
+
