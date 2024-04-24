@@ -72,20 +72,23 @@ class Cifrador:
         self.num_usos = num_usos
 
     def cifrar(self, mensaje):
+        #self.num_usos = self.num_usos - 1
         self.num_usos -= 1
-        if self.num_usos <= 0:
+        if self.num_usos < 0:
             return "Pase por caja."
         
         return cifrar(mensaje, self.distancia)
     
-    #def descifrar(self, )
+    def descifrar(self, mensaje_cifrado):
+        #self.cifrar(mensaje_cifrado)
+        return cifrar(mensaje_cifrado, -self.distancia)
+    
+if __name__ == "__main__":
+    cifrador = Cifrador(3, 5)
+    frase = "Yo era un pobre desgraciado hasta que conoci a Warren Sanchez"
+    palabras = frase.split(" ")
+    for palabra in palabras:
+        print(palabra, "-", cifrador.cifrar(palabra), "te quedan", cifrador.num_usos)
 
 
 
-cDidier = Cifrador(1, 1)
-print(cDidier.cifrar("Hola")) # -> IPMB
-print(cDidier.descifrar("ipmb")) #-> HOLA
-
-print(cDidier.cifrar("Hola")) # -> "Pase por caja."
-
-print(cDidier.distancia)
